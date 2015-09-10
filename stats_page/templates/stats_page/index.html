@@ -1,0 +1,61 @@
+{% load staticfiles %}
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Stats Page</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'stats_page/css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'stats_page/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Kegst3r</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Beer List</a></li>
+      </ul>
+
+    </div>
+  </nav>
+  <div class="container">
+    <h1 class="blue-text lighten-1">Kegst3r!!!</h1>
+    <br><br>
+    {% if user_list %}
+      <table border="1" style="width:50%">
+        <tr>
+          <td>ID</td>
+          <td>Username</td>
+          <td>Balance ($)</td>
+          <td>Beer Count</td>
+        </tr>
+        {% for user in user_list %}
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td>${{ user.balance }}</td>
+          <td>{{ user.beer_count }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>Error Listing Users.</p>
+    {% endif %}
+  </div>
+
+  <footer class="page-footer orange">
+    <div class="container">
+      
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
+
