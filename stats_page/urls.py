@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
   url(r'^$', views.users, name='users'),
   url(r'^stats_page/', views.users, name='users'),
+  url(r'^gauges/', views.gauges, name='gauges'),
 ]

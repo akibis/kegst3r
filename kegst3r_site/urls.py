@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^', include('stats_page.urls')),
     url(r'^stats_page/', include('stats_page.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^gauges/', include('stats_page.urls')),
 ]

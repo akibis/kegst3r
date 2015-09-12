@@ -49,8 +49,9 @@
         <button type="button" id="g3_refresh">Refresh G3</button>
         <button type="button" id="g4_refresh">Refresh G4</button>
     </div>
-    <script src="../raphael-2.1.4.min.js"></script>
-    <script src="../justgage.js"></script>
+    {% load staticfiles %}
+    <script src="{% static 'stats_page/jquery/justgage-master/raphael-2.1.4.min.js' %}"></script>
+    <script src="{% static 'stats_page/jquery/justgage-master/justgage.js' %}"></script>
     <script>
     document.addEventListener("DOMContentLoaded", function(event) {
         var gNode1 = document.createElement('div');
