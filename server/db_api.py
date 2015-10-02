@@ -1,7 +1,7 @@
 import sqlite3
 
 # Connect to database
-conn = sqlite3.connect('keg_dev.sqlite')
+conn = sqlite3.connect('../../keg_dev.sqlite')
 c = conn.cursor()
 
 # List Users

@@ -5,37 +5,31 @@
 #
 # MIT License
 
-import RPi.GPIO as GPIO # Raspberry Pi GPIO pin library
-import time             # For time keeping
-from db_api import *    # LOADS KEG API
-from poll import getUID # parses libnfc polling
+import RPi.GPIO as GPIO	# Raspberry Pi GPIO pin library
+import time            	# For time keeping
+from db_api import *   	# LOADS KEG API
+from poll import getUID	# parses libnfc polling
+from valve import *	# valve functions
+
 
 # Use RPi2 board pin numbering scheme
 GPIO.setmode(GPIO.BOARD)
 
 # Setup pins
-blue = 29   # INFO
-green = 31  # SUCCESS
-yellow = 32 # BEER FLOW
-red = 33    # ERROR
-button = 36 # Future scanner
-
-# Get user badge number or id
-
-# Test accounts
-# kibisa = 1
-# duhanp = 2
-# anupdata = 3
-
-# id = 2
-# account_balance = getBalance(id)
+blue = 32   # INFO
+green = 36  # SUCCESS
+yellow = 38 # BEER FLOW
+red = 40    # ERROR
+button = 18 # Start poll button
+valve = 22  # Solenoid valve
 
 # Initialize IO
-GPIO.setup(button, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(blue, GPIO.OUT)
 GPIO.setup(green, GPIO.OUT)
 GPIO.setup(yellow, GPIO.OUT)
 GPIO.setup(red, GPIO.OUT)
+GPIO.setup(button, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(valve, GPIO.OUT)
 
 # Reset pins
 GPIO.output(blue, GPIO.LOW)
@@ -81,7 +75,7 @@ while 1:
         account_balance = getBalance(id)
       
         # trigger solenoid and flow meter here
-        time.sleep(5)
+        pourBeer(valve)
         GPIO.output(green, GPIO.LOW)
         GPIO.output(yellow, GPIO.LOW)
       
