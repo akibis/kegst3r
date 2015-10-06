@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'kegst3r_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'keg_dev'),
+        'NAME': os.path.join(BASE_DIR, '../keg_dev.sqlite'),
     }
 }
 

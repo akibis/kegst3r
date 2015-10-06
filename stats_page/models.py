@@ -3,7 +3,7 @@ from django.db import models
 # Contains all user information and stats
 class User(models.Model):
   id = models.IntegerField(primary_key=True)
-  badge_number = models.IntegerField(default=0)
+  badge_number = models.CharField(max_length=20)
   username = models.CharField(max_length=20)
   balance = models.IntegerField(default=0)
   beer_count = models.IntegerField(default=0)
