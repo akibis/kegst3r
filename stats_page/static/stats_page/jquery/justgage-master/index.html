@@ -156,7 +156,7 @@
       window.onload = function(){
         var g1 = new JustGage({
           id: "g1",
-          value: 69, //getRandomInt(0, 100),
+          value: getRandomInt(0, 100),
           min: 0,
           max: 100,
           title: "Glass Fill Amount",
@@ -169,21 +169,20 @@
 
         var g2 = new JustGage({
           id: "g2",
-          value: getRandomInt(100, 155),
+          value: getRandomInt(0, 155),
           min: 0,
           max: 155,
           title: "Beers Left",
 		  titleFontColor: "#010101",
 		  valueFontColor: "#010101",
-		  levelColors: ["#ff0000", "#f9c802", "#a9d70b"],
+		  levelColors: ["ff0000", "#f9c802", "#a9d70b"]
           label: "#",
 		  labelFontColor: "#010101"
         });
 
         setInterval(function() {
-          //g1.refresh(getRandomInt(0, 100));
-		  g1.refresh(69);
-          g2.refresh(getRandomInt(100, 155));
+          g1.refresh(getRandomInt(0, 100));
+          g2.refresh(getRandomInt(0, 155));
         }, 2500);
       };
     </script>
